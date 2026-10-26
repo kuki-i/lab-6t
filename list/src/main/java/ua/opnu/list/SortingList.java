@@ -120,6 +120,34 @@ public class SortingList extends Application {
 
         final boolean[] order = {true};
 
+        final boolean[] orderName = {true};
+        final boolean[] orderLastName = {true};
+        final boolean[] orderMark = {true};
+
+        sortByNameButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                students.sort(new NameSorter(orderName[0]));
+                orderName[0] = !orderName[0];
+            }
+        });
+
+        sortByLastNameButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                students.sort(new LastNameSorter(orderLastName[0]));
+                orderLastName[0] = !orderLastName[0];
+            }
+        });
+
+        sortByMarkButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                students.sort(new MarkSorter(orderMark[0]));
+                orderMark[0] = !orderMark[0];
+            }
+        });
+
         sortByNameButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
